@@ -1,0 +1,12 @@
+{
+  "name": "zappo-app1",
+  "description": "zappo sample application",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.0", 
+    "ejs": "*", 
+    "emailjs": "0.3.4", 
+    "mongodb": "*" 
+  }
+}
