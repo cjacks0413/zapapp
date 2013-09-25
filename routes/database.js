@@ -3,6 +3,20 @@
 */ 
 mailer = require('./email'); 
 var SALE_PERCENT = 20; 
+
+var Db = require('mongodb').Db;
+var Connection = require('mongodb').Connection;
+var Server = require('mongodb').Server;
+var BSON = require('mongodb').BSON;
+var ObjectID = require('mongodb').ObjectID;
+var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL ||
+			   'mongodb://localhost/zapapp';
+var mongo = require('mongodb');
+
+var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
+		db = databaseConnection;		
+		}); 
+/*
 var mongo = require('mongodb'); 
 
 var Server = mongo.Server,
@@ -10,7 +24,7 @@ var Server = mongo.Server,
   BSON = mongo.BSONPure;  
 
 var server = new Server('localhost', 27017, {auto_reconnect: true }); 
-db = new db('userdb', server, {safe: false} ); 
+db = new db('userdb', server, {safe: false} ); */ 
 
 exports.open = db.open(function(err, db) {
   if (!err) {

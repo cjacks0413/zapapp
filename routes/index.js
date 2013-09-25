@@ -16,13 +16,13 @@ var all_users = new Array();
 var Zappo_apikey = "&key=52ddafbe3ee659bad97fcce7c53592916a6bfd73";
 var base_url = "http://api.zappos.com/" 
 var url = ""; 
+var SALE_PERCENT = 20;
+var now = new Date();
+var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0, 0) - now; 
+
 /* for the db */ 
 var Product = new Object();
 var newUser = new Object();
-var now = new Date();
-var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0, 0) - now;
-
-
 
 
 exports.home = function(req, res) {
