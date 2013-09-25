@@ -24,7 +24,7 @@ var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10
 var Product = new Object();
 var newUser = new Object();
 
-
+/* home page */ 
 exports.home = function(req, res) {
 	res.render('index'); 
   	/* check every day at 10am for percent_off */ 
@@ -33,11 +33,10 @@ exports.home = function(req, res) {
 	} 
 	setTimeout(function(){
 			update_price(); 
-		//	mydb.get_users(); 
 		}, millisTill10);	
 }
 
-
+/* post request */ 
 exports.enter = function(req, res) {
 
 	email = req.body.user; 
@@ -80,8 +79,7 @@ function get_info(product, is_name, req, res)
 }
 
 /* get price of product. finds the lowest value among the results and
-returns it. */ 
-
+sends it to objects to be placed into database */ 
 function get_price(str, is_name)
 {
 	var obj_to_store = new Array(); 
@@ -129,10 +127,10 @@ function create_user()
 		url: url, 
 		created_at: new Date() 
 	};
-
 	mydb.addUser(newUser); 
 }
 
+/* called every day at 10am, sends email to users */ 
 function update_price()
 {
 	var users = mydb.get_users(); 

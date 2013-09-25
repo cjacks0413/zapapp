@@ -4,39 +4,17 @@
 mailer = require('./email'); 
 var SALE_PERCENT = 20; 
 
-var Db = require('mongodb').Db;
-var Connection = require('mongodb').Connection;
-var Server = require('mongodb').Server;
-var BSON = require('mongodb').BSON;
-var ObjectID = require('mongodb').ObjectID;
-var mongoUri = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL ||
-			   'mongodb://localhost/zapapp';
 var mongo = require('mongodb');
 
+var mongoUri = process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost/mydb';
+
 var db = mongo.Db.connect(mongoUri, function (error, databaseConnection) {
+		console.log("connected"); 
 		db = databaseConnection;		
 		}); 
-/*
-var mongo = require('mongodb'); 
-
-var Server = mongo.Server,
-  db = mongo.Db,
-  BSON = mongo.BSONPure;  
-
-var server = new Server('localhost', 27017, {auto_reconnect: true }); 
-db = new db('userdb', server, {safe: false} ); */ 
-
-exports.open = db.open(function(err, db) {
-  if (!err) {
-  	console.log("Connected to 'userdb'");
-  	db.collection('users', {strict:true}, function(err, collection) {
-  		if (err) {
-			console.log("The 'users' collection doesn't exist");
-		}
-	});
-  }
-});
-
+		
 exports.addUser = function addUser(user) {
 	console.log('Adding user: ' + JSON.stringify(user));
 	db.collection('users', function(err, collection) {
@@ -50,15 +28,6 @@ exports.addUser = function addUser(user) {
 	});
 } 
 
-function check_price(percent_off) 
-{
-	for(i = 0; i < users.length; i++) {
-			if(users[i].product["percent_off"] >= SALE_PERCENT) {
-			mailer.sendMessage(users[i].email, users[i].product); 
-		}
-	}
-}
-
 exports.get_users = function get_users()
 {
 	db.collection('users', function(err, collection) {
@@ -70,7 +39,6 @@ exports.get_users = function get_users()
 					console.log(err);
 					return new Error(err);
 				}
-	//			check_price(items); 
 				return items; 
 		    });
 	}); 

@@ -7,6 +7,7 @@
 * User inputs email and product ID or product Name. When the price is at least 20% off,  
 	  they get an email notifying them of the change.
 * Not an app for iPhone/Android but does have responsive design.
+
 ## Configuration:
 * Not currently deployed to heroku, so must be run locally. 
 * Configure your local system to run node.js and mongodb
