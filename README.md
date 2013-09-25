@@ -9,15 +9,14 @@
 * Not an app for iPhone/Android but does have responsive design.
 
 ## Configuration:
-* Not currently deployed to heroku, so must be run locally. 
-* Configure your local system to run node.js and mongodb
+* Currently deployed to heroku at: http://aqueous-savannah-2343.herokuapp.com/ 
+* Or, you can run it locally: configure your local system to run node.js and mongodb
 	- Node is downloadable from http://nodejs.org/ 
 	- MongoDB is downloadable from http://www.mongodb.org/downloads 
 	- Both can be installed using homebrew. 
  * Unzip this file (or fork from github) and run npm install 
  * Open up the local server (node app)
- * Point your browser at localhost:5000 
- * NOTE: in order for the database functionality to work locally, you must be running your local mongo server. To do so, run mongod anywhere in terminal. Do not exitthat process until you are finished using the database. 
+ * Point your browser at localhost: 5000 and go for it! 
  		
 ## Room for Future Growth: 
 * Allow users to choose at which sale price they'd like to be notified.
