@@ -46,3 +46,18 @@ input    {
 	font-size: 30px; 
 	margin-left: 150px; 
 }
+
+@media screen and (max-width: 480px) {
+	form {
+		margin-left: 0px; 
+	}
+	.enter-form {
+		margin-left: 0px; 
+	}
+	input {
+		margin-left: 0px;
+	}
+	#or-div {
+		margin-left: 0px; 
+	}
+}
