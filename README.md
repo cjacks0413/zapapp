@@ -6,7 +6,7 @@
 * Web application written in javascript using Node.js
 * User inputs email and product ID or product Name. When the price is at least 20% off,  
 	  they get an email notifying them of the change.
-* Not an app for iPhone/Android but does have responsive design.
+* Not an app for iPhone/Android but does account for varying screen sizes. 
 
 ## Configuration:
 * Currently deployed to heroku at: http://aqueous-savannah-2343.herokuapp.com/ 
